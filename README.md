@@ -2,6 +2,10 @@
 
 Excel is a Python program for converting phone numbers from Excel file to text file.
 
+## Installation
+
+Use this link [pip](https://github.com/namhai923/Excel.git) to clone the project to your computer.
+
 ## Usage
 python Excel.py [file name] [+number]
 
