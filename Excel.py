@@ -33,16 +33,20 @@ def Delete(PhoneList):
 
 def Mode(Mode, PhoneList):
     PhoneNumber = []
-    # Mode = list(str(Mode))
     for Phone in PhoneList:
         ChangedNumber = []
         PhoneArray = Phone.split('-')
         for Number in PhoneArray:
-            if len(Number) >= (len(Mode)-1):
+            if len(Number) > 12 or len(Number) < 9:
+                Number = '' 
+            elif len(Number) >= (len(Mode)-1):
                 Number = Number.replace(Number[:(len(Mode)-1)],Mode[-(len(Mode)-1):],1)
             ChangedNumber.append(Number+'-')
         ChangedNumber = ''.join(ChangedNumber)
         ChangedNumber = ChangedNumber[:-1]
+        if len(ChangedNumber) > 0:
+            if ChangedNumber[len(ChangedNumber) - 1] == '-':
+                ChangedNumber = ChangedNumber[:-1]
         PhoneNumber.append(ChangedNumber)
     return PhoneNumber
 
